@@ -47,6 +47,8 @@ Example request:
   "account_home_country": "US"
 }
 
+```
+
 ## Example Response
 {
   "risk_score": 0.78,
@@ -58,6 +60,7 @@ Example request:
   ]
 }
 
+## Repository Structure
 payments-risk-rules-engine/
   README.md
   config/
