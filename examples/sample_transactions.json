@@ -1,0 +1,67 @@
+[
+  {
+    "_scenario": "Clean transaction — no rules fire",
+    "transaction_id": "TXN-001",
+    "account_id": "A001",
+    "amount": 45.00,
+    "merchant_country": "US",
+    "account_home_country": "US",
+    "merchant_category": "groceries",
+    "device_id": "DEV-100",
+    "hour_of_day": 14,
+    "recent_transaction_count": 1,
+    "known_device": true
+  },
+  {
+    "_scenario": "High-amount fraud — only HIGH_AMOUNT fires",
+    "transaction_id": "TXN-002",
+    "account_id": "A001",
+    "amount": 2500.00,
+    "merchant_country": "US",
+    "account_home_country": "US",
+    "merchant_category": "electronics",
+    "device_id": "DEV-100",
+    "hour_of_day": 10,
+    "recent_transaction_count": 1,
+    "known_device": true
+  },
+  {
+    "_scenario": "Geo mismatch — only GEO_MISMATCH fires",
+    "transaction_id": "TXN-003",
+    "account_id": "A002",
+    "amount": 120.00,
+    "merchant_country": "BR",
+    "account_home_country": "US",
+    "merchant_category": "retail",
+    "device_id": "DEV-200",
+    "hour_of_day": 15,
+    "recent_transaction_count": 0,
+    "known_device": true
+  },
+  {
+    "_scenario": "Device novelty — only DEVICE_NOVELTY fires",
+    "transaction_id": "TXN-004",
+    "account_id": "A003",
+    "amount": 85.00,
+    "merchant_country": "US",
+    "account_home_country": "US",
+    "merchant_category": "retail",
+    "device_id": "DEV-UNKNOWN",
+    "hour_of_day": 12,
+    "recent_transaction_count": 0,
+    "known_device": false
+  },
+  {
+    "_scenario": "Nighttime activity — only NIGHTTIME_ACTIVITY fires",
+    "transaction_id": "TXN-005",
+    "account_id": "A004",
+    "amount": 60.00,
+    "merchant_country": "US",
+    "account_home_country": "US",
+    "merchant_category": "food_delivery",
+    "device_id": "DEV-300",
+    "hour_of_day": 3,
+    "recent_transaction_count": 0,
+    "known_device": true
+  }
+]

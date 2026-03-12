@@ -1,0 +1,49 @@
+# ───────────────────────────────────────────────────────────────
+# Payments Risk Rules Engine — Threshold Configuration
+# ───────────────────────────────────────────────────────────────
+# Thresholds used by each rule. These values are realistic defaults
+# for payments fraud systems and can be tuned per environment.
+# ───────────────────────────────────────────────────────────────
+
+thresholds:
+
+  # HIGH_AMOUNT rule
+  high_amount: 500.00        # USD — transactions above this are suspicious
+
+  # HIGH_VELOCITY rule
+  velocity_window_minutes: 5 # Time window for velocity checks
+  velocity_max_transactions: 3
+
+  # GEO_MISMATCH rule
+  # No numeric threshold — rule compares merchant_country vs account_home_country
+
+  # DEVICE_NOVELTY rule
+  # No numeric threshold — rule checks if device_id is new for the account
+
+  # NIGHTTIME_ACTIVITY rule
+  nighttime_start_hour: 0    # Midnight
+  nighttime_end_hour: 5      # 5 AM
+
+  # MERCHANT_CATEGORY_RISK rule
+  high_risk_categories:
+    - "gambling"
+    - "crypto_exchange"
+    - "money_transfer"
+    - "adult_entertainment"
+
+# ───────────────────────────────────────────────────────────────
+# Risk Tier Boundaries
+# ───────────────────────────────────────────────────────────────
+# A transaction's aggregated risk score is mapped to a tier
+# based on these upper-bound thresholds (evaluated in order).
+# ───────────────────────────────────────────────────────────────
+
+tiers:
+  - name: low
+    max_score: 0.40
+  - name: medium
+    max_score: 0.70
+  - name: high
+    max_score: 0.90
+  - name: block
+    max_score: 1.00

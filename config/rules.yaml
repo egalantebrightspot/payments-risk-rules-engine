@@ -1,0 +1,42 @@
+# ───────────────────────────────────────────────────────────────
+# Payments Risk Rules Engine — Rule Configuration
+# ───────────────────────────────────────────────────────────────
+# Each rule has:
+#   enabled:     whether the rule is active
+#   weight:      contribution to final risk score (weights sum to 1.0)
+#   description: human-readable purpose of the rule
+#
+# Operational thresholds live in thresholds.yaml.
+# ───────────────────────────────────────────────────────────────
+
+rules:
+
+  HIGH_AMOUNT:
+    enabled: true
+    weight: 0.25
+    description: "Flags transactions exceeding the high-amount threshold."
+
+  HIGH_VELOCITY:
+    enabled: true
+    weight: 0.25
+    description: "Flags accounts with too many transactions in a short time window."
+
+  GEO_MISMATCH:
+    enabled: true
+    weight: 0.20
+    description: "Flags transactions occurring outside the account's home country."
+
+  DEVICE_NOVELTY:
+    enabled: true
+    weight: 0.12
+    description: "Flags first-time device usage for an account."
+
+  NIGHTTIME_ACTIVITY:
+    enabled: true
+    weight: 0.10
+    description: "Flags transactions occurring during unusual hours."
+
+  MERCHANT_CATEGORY_RISK:
+    enabled: true
+    weight: 0.08
+    description: "Flags transactions in high-risk merchant categories."
